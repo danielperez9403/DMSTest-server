@@ -19,6 +19,5 @@
         public int Mileage { get; set; }
         public string Color { get; set; }
         public DealerBase Dealer { get; set; }
-        public string GetStatus() { return Dealer != null ? Dealer.GetStatusDisplayString() : String.Empty; }
     }
 }
