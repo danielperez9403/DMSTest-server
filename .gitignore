@@ -1,0 +1,24 @@
+# Ignore bin and obj
+obj
+bin
+
+# Ignore build output
+/dist
+
+# Ignore environment variables
+/.env
+/.env.local
+.env.*.local
+.env.production.local
+
+# Ignore editor settings
+.vscode
+.idea
+.vs
+
+# Ignore log files
+*.log
+logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

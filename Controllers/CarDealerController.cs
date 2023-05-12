@@ -19,9 +19,9 @@ namespace webapi.Controllers
         }
 
         [HttpGet(Name = "GetCarDealer")]
-        public IActionResult GetCarDealer(string? dealer) 
+        public IActionResult GetCarDealer(int? dealerId) 
         {
-            string result = _mockDataService.GetCars(dealer);
+            string result = _mockDataService.GetCars(dealerId);
 
             return Ok(result);
         }

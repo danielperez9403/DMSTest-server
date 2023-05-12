@@ -26,10 +26,13 @@ namespace webapi.Schema
     {
         public DealerBase() 
         {
+            Id = 0;
             Name = "";
             Status = "Inactive";
             Cars = new List<Car>();
         }
+
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Status { get; set; }
         public  List<Car> Cars { get; set; }
