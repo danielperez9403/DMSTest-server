@@ -68,7 +68,8 @@ namespace webapi.Services
 
         public string GetDealers()
         {
-            var jsonData = JsonConvert.SerializeObject(new { dealers = dealers }, Formatting.Indented,
+            var dealersInfo = dealers.Select(d => new { Id = d.Id, Name = d.Name}).ToList();
+            var jsonData = JsonConvert.SerializeObject(new { dealers = dealersInfo }, Formatting.Indented,
                 new JsonSerializerSettings()
                 {
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore
