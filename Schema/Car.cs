@@ -10,7 +10,6 @@
             Price = 0;
             Mileage = 0;
             Color = String.Empty;
-            Status  = String.Empty;
             Dealer = new DealerBase();
         }
 
@@ -19,8 +18,7 @@
         public int Price { get; set; }
         public int Mileage { get; set; }
         public string Color { get; set; }
-        public string Status { get; set; }
-
         public DealerBase Dealer { get; set; }
+        public string GetStatus() { return Dealer != null ? Dealer.GetStatusDisplayString() : String.Empty; }
     }
 }
