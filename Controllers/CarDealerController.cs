@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using webapi.Services;
 using webapi.Schema;
+using Newtonsoft.Json;
 
 namespace webapi.Controllers
 {
@@ -20,7 +21,7 @@ namespace webapi.Controllers
         [HttpGet(Name = "GetCarDealer")]
         public IActionResult GetCarDealer(string? dealer) 
         {
-            List<Car> result = _mockDataService.GetCars(dealer);
+            string result = _mockDataService.GetCars(dealer);
 
             return Ok(result);
         }

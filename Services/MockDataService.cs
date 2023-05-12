@@ -1,4 +1,5 @@
-﻿using webapi.Schema;
+﻿using Newtonsoft.Json;
+using webapi.Schema;
 
 namespace webapi.Services
 {
@@ -18,7 +19,7 @@ namespace webapi.Services
             new Dealer2 { Brand = "Chevrolet", Model = "Blazer", Price = 37900, Mileage = 0, Color = "Blue Glow", Status = "Inactive" },
         };
 
-        public List<Car> GetCars(string? dealer) 
+        public string GetCars(string? dealer) 
         {
             List<Car> result;
             if (dealer == "Dealer1")
@@ -34,7 +35,10 @@ namespace webapi.Services
                 result = new List<Car>();
             }
 
-            return result;
+            var jsonSettings = new JsonSerializerSettings { Formatting = Formatting.Indented };
+            var jsonData = JsonConvert.SerializeObject(new { cars = result }, jsonSettings);
+
+            return jsonData;
         }
     }
 }
