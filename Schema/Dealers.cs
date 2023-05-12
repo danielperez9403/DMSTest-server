@@ -1,18 +1,38 @@
-﻿namespace webapi.Schema
+﻿using System;
+
+namespace webapi.Schema
 
 {
-    public class Dealer1 : Car
+    public class Dealer1 : DealerBase
     {
-        public override string Status
+        public Dealer1() : base() { }
+        public override string GetStatusDisplayString()
         {
-            get { return String.Equals(base.Status, "Active") ? "For Sale" : "Not for Sale"; }
-            set { base.Status = value; }
+            return Status == "Active" ? "For Sale" : "Inactive";
         }
-        public string DealerName { get; set; } = "Dealer 1";
     }
 
-    public class Dealer2 : Car
+    public class Dealer2 : DealerBase
     {
-        public string DealerName { get; set; } = "Dealer 2";
+        public Dealer2() : base() { }
+        public override string GetStatusDisplayString()
+        {
+            return Status == "Active" ? "Active" : "Inactive";
+        }
+    }
+
+    
+    public class DealerBase
+    {
+        public DealerBase() 
+        {
+            Name = "";
+            Status = "Inactive";
+            Cars = new List<Car>();
+        }
+        public string Name { get; set; }
+        public string Status { get; set; }
+        public  List<Car> Cars { get; set; }
+        public virtual string GetStatusDisplayString() { return "Inactive";  }
     }
 }
