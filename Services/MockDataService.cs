@@ -65,5 +65,16 @@ namespace webapi.Services
 
             return jsonData;
         }
+
+        public string GetDealers()
+        {
+            var jsonData = JsonConvert.SerializeObject(new { dealers = dealers }, Formatting.Indented,
+                new JsonSerializerSettings()
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+
+            return jsonData;
+        }
     }
 }

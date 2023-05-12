@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 
 namespace webapi.Controllers
 {
-    [Route("api/v1/[controller]")]
     [ApiController]
     public class CarDealerController : ControllerBase
     {
@@ -18,10 +17,20 @@ namespace webapi.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = "GetCarDealer")]
-        public IActionResult GetCarDealer(int? dealerId) 
+        [HttpGet]
+        [Route("api/v1/Cars")]
+        public IActionResult Cars(int? dealerId) 
         {
             string result = _mockDataService.GetCars(dealerId);
+
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("api/v1/Dealers")]
+        public IActionResult Dealers()
+        {
+            string result = _mockDataService.GetDealers();
 
             return Ok(result);
         }
